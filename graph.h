@@ -1,4 +1,4 @@
-//Version 16.05-5:00 PM
+//Version 22.05-2018
 // A structure to represent a graph. A graph is an array of adjacency lists.
 // Size of array will be V (number of vertices in graph)
 
@@ -63,16 +63,3 @@ void addEdge(Graph* graph, int src, int dest,
 
 }
 
-// A utility function to print the adjacenncy list representation of graph
-void printGraph(Graph* graph) {
-    int v;
-    for (v = 0; v < graph->V; ++v) {
-        EdgeNodePtr pCrawl = graph->edges[v].head;
-        printf("\n Adjacency list of vertex %d\n head ", v);
-        while (pCrawl) {
-            printf("-> %d", pCrawl->edge->to_vertex);
-            pCrawl = pCrawl->next;
-        }
-        printf("\n");
-    }
-}
