@@ -1,4 +1,5 @@
-//Version 16.05-5:00 PM
+//Version 22.05-2018
+//Author: Jimy Santana
 /* For a given source node in the graph, the algorithm finds the shortest path between that node and
 every other, it can also be used for finding the shortest paths from a single node to a single
 destination node by stopping the algorithm once the shortest path to the destination node has
@@ -28,7 +29,7 @@ void dijkstra(Graph* graph, int source, int* dist, int* pred){
   }
   dist[source] = 0;//dist inicial del nodo fuente es 0
   count = 0;
-  //Inicia la busqueda del camino m·s corto desde el vertice fuente
+  //Inicia la busqueda del camino m√°s corto desde el vertice fuente
   while (count < n-1){
     min_dist = INFINITY;
     //next node is the node at min_dist
