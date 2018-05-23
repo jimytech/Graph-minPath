@@ -1,4 +1,5 @@
-//Version 16.05-5:00 PM
+//Version 1.2 22.05-2018
+//jimytech
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -74,8 +75,8 @@ int main() {
 	return 0;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
-// funcion que determina los nodos adyacentes del DEM para adicionarlos al grafo con su peso
-//option: true, function calculated weight cost_funcA, false is funcB
+//function that determines the adjacent nodes of the DEM to add them to the graph with its weight
+//option = d, function calculated weight cost_funcA, else is funcB
 ///////////////////////////////////////////////////////////////////////////////////////////
   void  setNodesAdy (Graph *graph, int** DEM, int size, char option)
   {
@@ -181,6 +182,6 @@ void printPath2D (int size,int source, int** D, int** next2D){
     {
        int i;
 
-       for(i = 0; i < g->n; i++) free(g->alist[i]);
+       for(i = 0; i < g->n; i++) free( );
        free(g);
     }*/
