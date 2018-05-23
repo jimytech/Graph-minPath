@@ -1,5 +1,5 @@
 //Version 1.2 22.05-2018
-//jimytech
+//Jimy Santana
 
 #include <stdlib.h>
 #include <stdio.h>
