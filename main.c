@@ -33,7 +33,7 @@ int main() {
         switch(ch){
 
            case 'd':
-               //Does the calculation of the DEM with the costA function
+               //Does the calculation of the DEM
                DEM = make_dem(size, size*9);
                //Converts it to an adjacency list using const_funcA
                setNodesAdy(graph, DEM, size, 'd');
@@ -49,12 +49,8 @@ int main() {
                printPath (size, source, DEM, prev);
              break;
              case 'f':
-               //Does the calculation of the DEM with the costB function
-               DEM = make_dem(size, size*9); 
-                              
                //converts it to an adjacency list using const_funcB
                setNodesAdy(graph, DEM, size, 'f');
-               
                //calculates the shortest paths from vertex 0 (top left in the DEM)
                //reconstructs the path to the last vertex (bottom right in the DEM)
                int** next2D = malloc(V * sizeof *next2D); //Array2D of the path
@@ -140,19 +136,27 @@ void printPath (int size, int source, int** D, int* prev)
 {
     int prev_node = size*size-1; //End node;
     int i, j;
-    int** DEM;
-    DEM = D;
+    
+    int** D = malloc(size * sizeof *D);
+    for (i = 0; i < size; i++) 
+	 D[i] = malloc(size * sizeof *D[i]);
+    for (i=0; i<size; i++)
+      for (j=0; j<size; j++)
+        D[i][j] = DEM[i][j];
     do {
       i = prev_node/size;
       j = prev_node%size;
-      DEM[i][j] = -1;
+      D[i][j] = -1;
       prev_node = prev[prev_node];
     } while (prev_node != source);
     //prev_node is the source
     i = prev_node/size;
     j = prev_node%size;
-    DEM[i][j] = -1;
-    print_2D_ascii(DEM, size);
+    D[i][j] = -1;
+    print_2D_ascii(D, size);
+    for (i = 0; i < size; i++) 
+	free (D[i]);
+    free (D);	
 }//End printPath
 
 //function printPath2D floyd-warshall
