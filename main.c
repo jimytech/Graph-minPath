@@ -162,24 +162,28 @@ void printPath (int size, int source, int** D, int* prev)
 //function printPath2D floyd-warshall
 //creates a copy of the DEM with the heights changed to any vertex on the path.
 //prints the DEM to show the path of node source = 0 at the last node V   
-void printPath2D (int size,int source, int** D, int** next2D){
+void printPath2D (int size,int source, int** DEM, int** next2D){
     int prev_node = size*size-1; //End node;
     int i, j;
-    int** DEM;
-    DEM = D;
+        
+  	int** D = malloc(size * sizeof *D);
+	for (i = 0; i < size; i++) 
+		D[i] = malloc(size * sizeof *D[i]);
+    for (i=0; i<size; i++)
+      for (j=0; j<size; j++)
+        D[i][j] = DEM[i][j];
     do {
       i = prev_node/size;
       j = prev_node%size;
-      DEM[i][j] = -1;
+      D[i][j] = -1;
       prev_node = next2D[source][prev_node];
     } while (prev_node != source);
     //prev_node is the source
     i = prev_node/size;
     j = prev_node%size;
-    DEM[i][j] = -1;
-    print_2D_ascii(DEM, size);
-}//End function printPath2D           
-/////////////////////////////////////////////////////////////////////
+    D[i][j] = -1;
+    print_2D_ascii(D, size);
+}//End function printPath2D/////////////////////////////////////////////////////////////////////
   
 /* free all space used by graph */
   /*void graph_destroy(Graph* g)
