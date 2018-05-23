@@ -1,4 +1,5 @@
-//Version 16.05-5:00 PM
+//Version 16.05-2018
+//Author: Jimy Santana
 /*////////////////////////////////////////////////////////////////////
 Function floydW
 Parameters:           
